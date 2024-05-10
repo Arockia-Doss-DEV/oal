@@ -79,6 +79,8 @@ class AdminController extends Controller{
         // }
         // echo "Done"; exit();
 
+        $draft_investment = Subscription::where('status', '=',0)
+                                ->get();
 
 
         //////////////////
