@@ -40,6 +40,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Helper;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Faker\Factory as Faker;
 
 class AdminController extends Controller{
     
@@ -50,6 +51,27 @@ class AdminController extends Controller{
      */
     public function dashboard()
     {
+
+        //generate fake email to all users
+
+        $faker = Faker::create();
+        $users = User::all();
+
+        foreach ($users as $key => $user) {
+            $usr = User::findOrFail($user->id);
+
+            $fakerEmail = $faker->unique()->safeEmail;
+
+            $usr->email = $fakerEmail;
+            // $usr->peremail = $fakerEmail;
+            $usr->mobile_no = $faker->phoneNumber;
+        
+            $usr->save();
+        }
+        
+        exit();
+
+        
         // $subscriptions = Subscription::where('investment_class_type', null)->get();
         // foreach ($subscriptions as $key => $subscription) {
         //     $subscription->investment_class_type =1;
