@@ -54,22 +54,22 @@ class AdminController extends Controller{
 
         //generate fake email to all users
 
-        $faker = Faker::create();
-        $users = User::all();
+        // $faker = Faker::create();
+        // $users = User::all();
 
-        foreach ($users as $key => $user) {
-            $usr = User::findOrFail($user->id);
+        // foreach ($users as $key => $user) {
+        //     $usr = User::findOrFail($user->id);
 
-            $fakerEmail = $faker->unique()->safeEmail;
+        //     $fakerEmail = $faker->unique()->safeEmail;
 
-            $usr->email = $fakerEmail;
-            // $usr->peremail = $fakerEmail;
-            $usr->mobile_no = $faker->phoneNumber;
+        //     $usr->email = $fakerEmail;
+        //     // $usr->peremail = $fakerEmail;
+        //     $usr->mobile_no = $faker->phoneNumber;
         
-            $usr->save();
-        }
+        //     $usr->save();
+        // }
         
-        exit();
+        // exit();
 
         
         // $subscriptions = Subscription::where('investment_class_type', null)->get();
