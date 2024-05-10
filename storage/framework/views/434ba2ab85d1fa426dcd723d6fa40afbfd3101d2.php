@@ -1,0 +1,76 @@
+
+
+<?php $__env->startSection('title', 'Create New Price'); ?>
+
+<?php $__env->startSection('content'); ?>
+    
+    <div class="container-fluid">
+        
+        <?php echo $__env->make("admin.elements.sidebar", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-lg-12 card-margin">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h6 class="card-title m-0">Add Price</h6>
+                            </div>
+                            <div class="card-body">
+
+                                <form action="<?php echo e(route('prices.store')); ?>" method="POST" autocomplete="off">
+                                    <?php echo csrf_field(); ?>
+                                    <div class="row">
+                                        <input type="hidden" name="class_type" value="<?php echo e($classType); ?>">
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <div class="form-group">
+                                                <strong>Dealing Date :</strong>
+                                                <input type="text" name="dealing_date" class="form-control datepicker" placeholder="Dealing Date">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-12 col-md-3">
+                                            <div class="form-group">
+                                                <strong>Latest Price :</strong>
+                                                <input type="text" name="latest_price" class="form-control" placeholder="Latest Price">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-12 col-md-3">
+                                            <div class="form-group">
+                                                <strong> <?php echo e($classType == 1 ? 'Quarterly Return :' : 'Monthly Return :'); ?> </strong>
+                                                <input type="text" name="quarterly_return" class="form-control" placeholder="<?php echo e($classType == 1 ? 'Quarterly Return' : 'Monthly Return'); ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-3">
+                                            <div class="form-group">
+                                                <strong>Cumulative Return :</strong>
+                                                <input type="text" name="ytd_return" class="form-control" placeholder="Cumulative Return">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                                          <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('scripts'); ?>
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd', //2020-02-04
+            todayHighlight: true
+        });
+    </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/olympus-asset.com/public_html/resources/views/admin/prices/create.blade.php ENDPATH**/ ?>
