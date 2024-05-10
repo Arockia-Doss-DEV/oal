@@ -51,38 +51,6 @@ class AdminController extends Controller{
      */
     public function dashboard()
     {
-
-        //generate fake email to all users
-
-        // $faker = Faker::create();
-        // $users = User::all();
-
-        // foreach ($users as $key => $user) {
-        //     $usr = User::findOrFail($user->id);
-
-        //     $fakerEmail = $faker->unique()->safeEmail;
-
-        //     $usr->email = $fakerEmail;
-        //     // $usr->peremail = $fakerEmail;
-        //     $usr->mobile_no = $faker->phoneNumber;
-        
-        //     $usr->save();
-        // }
-        
-        // exit();
-
-        
-        // $subscriptions = Subscription::where('investment_class_type', null)->get();
-        // foreach ($subscriptions as $key => $subscription) {
-        //     $subscription->investment_class_type =1;
-        //     $subscription->save();
-        // }
-        // echo "Done"; exit();
-
-        $draft_investment = Subscription::where('status', '=',0)
-                                ->get();
-
-
         //////////////////
         $draft_investment = Subscription::where('status', '=',0)
                                 ->get();
